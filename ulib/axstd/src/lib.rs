@@ -46,6 +46,8 @@
 //!
 //! [ArceOS]: https://github.com/rcore-os/arceos
 
+#![feature(const_mut_refs)]
+#![feature(hasher_prefixfree_extras)]
 #![cfg_attr(all(not(test), not(doc)), no_std)]
 #![feature(doc_cfg)]
 #![feature(doc_auto_cfg)]
@@ -55,7 +57,9 @@ extern crate alloc;
 
 #[cfg(feature = "alloc")]
 #[doc(no_inline)]
-pub use alloc::{boxed, collections, format, string, vec};
+pub use alloc::{boxed, format, string, vec};
+
+pub mod collections;
 
 #[doc(no_inline)]
 pub use core::{arch, cell, cmp, hint, marker, mem, ops, ptr, slice, str};

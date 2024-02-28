@@ -95,3 +95,7 @@ impl Sub<Instant> for Instant {
         self.duration_since(other)
     }
 }
+
+pub fn current_ticks() -> u128 {
+    Instant::now().0.as_nanos()
+}
